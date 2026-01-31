@@ -1,16 +1,22 @@
-import type React from "react";
-
 type DefaultInputProps = {
-    id: string;
-} & React.ComponentProps<'input'>
+  id: string;
+  labelText: string;
+} & React.ComponentProps<"input">;
 
-function DefaultInput({id, type } : DefaultInputProps) {
-    return(
-        <>
-        <label htmlFor={id}>task</label>
-        <input id={id} type={type} />
-        </>
-    );
+function DefaultInput({ 
+    id, 
+    labelText, 
+    type, 
+    ...rest 
+}: DefaultInputProps) {
+  return (
+    <>
+      {/* Adding a conditonal option for the text/tittle of the input */}
+      {/* {labelText && <label htmlFor={id}>{labelText}</label>} */}
+      <label htmlFor={id}>{labelText}</label>
+      <input id={id} type={type} {...rest} />
+    </>
+  );
 }
 
 export default DefaultInput;
