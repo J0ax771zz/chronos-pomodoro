@@ -1,3 +1,5 @@
+import styles from './styles.module.css'
+
 type DefaultInputProps = {
   id: string;
   labelText: string;
@@ -14,7 +16,7 @@ function DefaultInput({
       {/* Adding a conditonal option for the text/tittle of the input */}
       {/* {labelText && <label htmlFor={id}>{labelText}</label>} */}
       <label htmlFor={id}>{labelText}</label>
-      <input id={id} type={type} {...rest} />
+      <input className={styles.input} id={id} type={type} {...rest} />
     </>
   );
 }
